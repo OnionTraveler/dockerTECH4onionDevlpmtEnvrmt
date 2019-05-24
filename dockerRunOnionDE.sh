@@ -6,7 +6,7 @@
 
  [ `docker images | grep 'oniontraveler/onionde' | cut -d ' ' -f 1,4 --output-delimiter=':'` ] && echo "The image 「oniontraveler/onionde:19.6.6」 has existed！" || docker build -f ./myDockerfiles/onionfile -t oniontraveler/onionde:19.6.6 .
 
- [ `docker ps -a | grep 'onionDE' | rev | cut -d ' ' -f 1 | rev` ] && echo "The container 「onionDE」 has existed" || docker run -itd --name onionDE --hostname onionDE -p 3306:3306 -p 27017:27017 --network=onionDENET oniontraveler/onionDE:19.6.6
+ [ `docker ps -a | grep 'onionDE' | rev | cut -d ' ' -f 1 | rev` ] && echo "The container 「onionDE」 has existed" || docker run -itd --name onionDE --hostname onionDE -p 3306:3306 -p 27017:27017 --network=onionDENET oniontraveler/onionde:19.6.6
  
  
  #========================= (port explanation)
