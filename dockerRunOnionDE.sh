@@ -11,8 +11,8 @@
  
  #========================= (port explanation)
 # -p 「實體主機host」:「容器container」
-# -p 3306:3306  -> MySQL
-# -p 27017:27017    -> MongoDB
+# -p 3306:3306    -> MySQL
+# -p 27017:27017  -> MongoDB
 
 
 #========================= (docker commands for entering into the container(onionDE))
