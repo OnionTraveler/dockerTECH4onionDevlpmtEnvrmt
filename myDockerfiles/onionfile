@@ -21,8 +21,21 @@ RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && \
     echo 'sudo docker inspect  --format "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" 「容器名稱或容器ID」'  >> containerIP.txt
 
+# 編輯器之「Deep TabNine」程式碼補全工具 (以下是針對vim編輯器的安裝) (https://tabnine.com/blog/deep)
+#RUN cd ~ && git clone https://github.com/zxqfl/tabnine-vim && mv ~/tabnine-vim ~/.tabnine-vim && echo "set rtp+=~/.tabnine-vim" >> ~/.vimrc
+
 ENTRYPOINT ["/bin/bash", "-c", "service ssh start; /bin/bash"]
 
 CMD service ssh status && /bin/bash
+
+
+
+
+
+# ========================= (在.vimrc中設定vim文字編輯器的偏好設定)
+#echo "set nu" >> ~/.vimrc &&\ # 顯示行號
+#echo "set ai" >> ~/.vimrc &&\  # 自動對齊縮排(如果上一行有兩個 tab 的寬度，按 enter 繼續編輯下一行時會自動保留兩個 tab 鍵的寬度)
+#echo "set tabstop=4" >> ~/.vimrc &&\  # 縮排間隔數(也就是說按一次 tab 鍵，游標會自動跳 4 格空白字元的寬度。雖有多個空格但實際上只有一個tab字元)
+#echo "set expandtab" >> ~/.vimrc  # 輸入 tab 都會被轉換成 space (而對應的 space 數量由 set tabstop=x 決定)
 
 
