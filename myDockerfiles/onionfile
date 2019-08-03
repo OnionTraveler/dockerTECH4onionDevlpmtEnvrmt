@@ -38,4 +38,10 @@ CMD service ssh status && /bin/bash
 #echo "set tabstop=4" >> ~/.vimrc &&\  # 縮排間隔數(也就是說按一次 tab 鍵，游標會自動跳 4 格空白字元的寬度。雖有多個空格但實際上只有一個tab字元)
 #echo "set expandtab" >> ~/.vimrc  # 輸入 tab 都會被轉換成 space (而對應的 space 數量由 set tabstop=x 決定)
 
+# ========================= (install R)
+key = 51716619E084DAB9; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $key  # GPG 簽名驗證 (其中，「key」是GPG的key ID。當你執行「add-apt-repository」，他($key)會顯示在「GPG error」的錯誤訊息中)
+apt-get install -y software-properties-common  # 安裝「software-properties-common」方可享有「add-apt-repository」指令
+add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'  # 將這個包(repository)「加入(adding a new)」本機的安裝包裡
+apt-get update && apt-get install -y r-base  # 上三行指令係為確保在此步驟可下載到最新的R語言版本
+
 
