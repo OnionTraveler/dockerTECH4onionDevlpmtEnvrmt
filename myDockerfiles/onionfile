@@ -43,5 +43,6 @@ CMD service ssh status && /bin/bash
 #apt-get install -y software-properties-common  # 安裝「software-properties-common」方可享有「add-apt-repository」指令
 #add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'  # 將這個包(repository)「加入(adding a new)」本機的安裝包裡
 #apt-get update && apt-get install -y r-base  # 上三行指令係為確保在此步驟可下載到最新的R語言版本
+#echo "alias R='R --no-save'" >> ~/.bashrc  # 若掛有「--no-save」這個參數進入R，在離開時即不會出現擾人的「Save workspace image? [y/n/c]: n」
 
 
