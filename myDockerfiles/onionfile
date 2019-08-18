@@ -45,4 +45,12 @@ CMD service ssh status && /bin/bash
 #apt-get update && apt-get install -y r-base  # 上三行指令係為確保在此步驟可下載到最新的R語言版本
 #echo "alias R='R --no-save'" >> ~/.bashrc  # 若掛有「--no-save」這個參數進入R，在離開時即不會出現擾人的「Save workspace image? [y/n/c]: n」
 
+# ========================= (install Java)
+#sudo apt install default-jdk  # The easiest option for installing Java is to use the version packaged with Ubuntu. By default, Ubuntu 18.04 includes Open JDK, which is an open-source variant of the JRE and JDK.
+#sudo apt-get install -y openjdk-8-jdk  # 指定安裝版本(OpenJDK 8)
+#javac -version  # javac 1.8.0_222
+#java -version  # openjdk version "1.8.0_222" 
+                # OpenJDK Runtime Environment (build 1.8.0_222-8u222-b10-1ubuntu1~18.04.1-b10) 
+                # OpenJDK 64-Bit Server VM (build 25.222-b10, mixed mode)
+
 
