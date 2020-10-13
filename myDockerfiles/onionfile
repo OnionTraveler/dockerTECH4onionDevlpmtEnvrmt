@@ -61,7 +61,6 @@ CMD service ssh status && /bin/bash
 #ENV PATH $DOTNET_HOME/bin:$PATH  # 等同「echo 'export PATH=$DOTNET_HOME:$PATH' >> ~/.bashrc; source ~/.bashrc」
 #RUN rm -rf /tmp/dotnet-sdk-3.1.402-linux-x64.tar.gz
 
-
 # 方法二：用包來有線安裝
 #RUN cd /tmp && wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb  # 下載microsoft基本包
 #RUN cd /tmp && dpkg -i packages-microsoft-prod.deb  # 安裝microsoft基本包
