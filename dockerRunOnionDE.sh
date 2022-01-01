@@ -27,7 +27,7 @@
 #========================= (docker commands for set up SSH Remote Development Container) (「docker exec -it onionDE4RmtDev /bin/bash」)
 # Step1：「mkdir ~/Desktop/onionDE4RmtDevDir && cd ~/Desktop/onionDE4RmtDevDir」
 # Step2：「docker run -itd --name onionDE4RmtDev --hostname onionDE4RmtDev -v ~/Desktop/onionDE4RmtDevDir:/root/onionDE4RmtDevDir -p 2222:22 --network=onionDENET oniontraveler/onionde:19.6.6」
-# Step3：「docker exec -i onionDE4RmtDev /bin/bash -c 'cd ~/.ssh && cat /root/onionDE4RmtDevDir/id_rsa.pub >> ./authorized_keys'」
+# Step3：「docker exec -i onionDE4RmtDev /bin/bash -c 'cd ~/.ssh && cat /root/onionDE4RmtDevDir/id_rsa.pub >> ./authorized_keys'」 <-- 記得做這步之前要先把客戶端所產生的公鑰放到「~/Desktop/onionDE4RmtDevDir/id_rsa.pub」這裡來哦!
 # Step4：在客戶端執行「.\ssh.exe root@xxx.xxx.xxx.xxx -p 2222」 -> 以指定帳號(是要用遠端伺服上已存在的帳號，這裡是用root作為範例(通常container裡的預設帳號為root))連線到目標Server的指定port號
 
 # SSH說明： (「id_rsa」&「id_rsa.pub」由客戶端執行「.\ssh-keygen.exe -t rsa -f C:\Users\user\.ssh\id_rsa」產生(在Windows裡不要使用「-P ''」這個參數，這會造成客戶端無法辨識私鑰))
