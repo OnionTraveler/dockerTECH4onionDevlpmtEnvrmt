@@ -32,11 +32,13 @@ CMD service ssh status && /bin/bash
 
 
 
+# ========================= 【其他常用語言安裝 & 其他好用插件安裝】 =========================
 # ========================= (在.vimrc中設定vim文字編輯器的偏好設定)
 #echo "set nu" >> ~/.vimrc &&\ # 顯示行號
 #echo "set ai" >> ~/.vimrc &&\  # 自動對齊縮排(如果上一行有兩個 tab 的寬度，按 enter 繼續編輯下一行時會自動保留兩個 tab 鍵的寬度)
 #echo "set tabstop=4" >> ~/.vimrc &&\  # 縮排間隔數(也就是說按一次 tab 鍵，游標會自動跳 4 格空白字元的寬度。雖有多個空格但實際上只有一個tab字元)
 #echo "set expandtab" >> ~/.vimrc  # 輸入 tab 都會被轉換成 space (而對應的 space 數量由 set tabstop=x 決定)
+
 
 # ========================= (install R)
 #key=51716619E084DAB9; apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $key  # GPG 簽名驗證 (其中，「key」是GPG的key ID。當你執行「add-apt-repository」，他($key)會顯示在「GPG error」的錯誤訊息中)
@@ -44,6 +46,7 @@ CMD service ssh status && /bin/bash
 #add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'  # 將這個包(repository)「加入(adding a new)」本機的安裝包裡
 #apt-get update && apt-get install -y r-base  # 上三行指令係為確保在此步驟可下載到最新的R語言版本
 #echo "alias R='R --no-save'" >> ~/.bashrc  # 若掛有「--no-save」這個參數進入R，在離開時即不會出現擾人的「Save workspace image? [y/n/c]: n」
+
 
 # ========================= (install Java)
 #sudo apt install default-jdk  # The easiest option for installing Java is to use the version packaged with Ubuntu. By default, Ubuntu 18.04 includes Open JDK, which is an open-source variant of the JRE and JDK.
@@ -53,12 +56,13 @@ CMD service ssh status && /bin/bash
                 # OpenJDK Runtime Environment (build 1.8.0_222-8u222-b10-1ubuntu1~18.04.1-b10) 
                 # OpenJDK 64-Bit Server VM (build 25.222-b10, mixed mode)
 
+
 # ========================= (install .NETCore 3.1) --> 「dotnet run XXX.csproj」
 # 方法一：離線安裝 (https://dotnet.microsoft.com/download/dotnet-core/3.1)
 #RUN cd /tmp && wget https://download.visualstudio.microsoft.com/download/pr/f01e3d97-c1c3-4635-bc77-0c893be36820/6ec6acabc22468c6cc68b61625b14a7d/dotnet-sdk-3.1.402-linux-x64.tar.gz && mkdir dotnet-3.1.402 && tar zxf dotnet-sdk-3.1.402-linux-x64.tar.gz -C dotnet-3.1.402
 #RUN cd /tmp && mkdir /usr/dotnet && mv dotnet-3.1.402 /usr/dotnet && ln -s /usr/dotnet/dotnet-3.1.402 /usr/dotnet/dotnet
 #ENV DOTNET_HOME /usr/dotnet/dotnet  # 等同「echo 'export DOTNET_HOME=/usr/dotnet/dotnet' >> ~/.bashrc; source ~/.bashrc」
-#ENV PATH $DOTNET_HOME/bin:$PATH  # 等同「echo 'export PATH=$DOTNET_HOME:$PATH' >> ~/.bashrc; source ~/.bashrc」
+#ENV PATH $DOTNET_HOME/bin:$PATH  # 等同「echo 'export PATH=$DOTNET_HOME/bin:$PATH' >> ~/.bashrc; source ~/.bashrc」
 #RUN rm -rf /tmp/dotnet-sdk-3.1.402-linux-x64.tar.gz
 
 # 方法二：用包來有線安裝
@@ -66,5 +70,37 @@ CMD service ssh status && /bin/bash
 #RUN cd /tmp && dpkg -i packages-microsoft-prod.deb  # 安裝microsoft基本包
 #RUN apt-get update && apt-get install -y apt-transport-https && apt-get install -y dotnet-sdk-3.1  # 安裝SDK
 #RUN rm -rf /tmp/packages-microsoft-prod.deb
+
+
+# ========================= (install Node.js) --> 「node XXX.js」
+# 方法一：離線安裝 (https://nodejs.org/en/download/) (「node -v  # v16.13.1」 & 「npm -v  # 8.1.2」)
+#RUN cd /tmp && wget https://nodejs.org/dist/v16.13.1/node-v16.13.1-linux-x64.tar.xz && tar xvf node-v16.13.1-linux-x64.tar.xz && mv node-v16.13.1-linux-x64 node-v16.13.1
+#RUN cd /tmp && mkdir /usr/nodejs && mv node-v16.13.1 /usr/nodejs && ln -s /usr/nodejs/node-v16.13.1 /usr/nodejs/nodejs
+#ENV NODEJS_HOME /usr/nodejs/nodejs  # 等同「echo 'export NODEJS_HOME=/usr/nodejs/nodejs' >> ~/.bashrc; source ~/.bashrc」
+#ENV PATH $NODEJS_HOME/bin:$PATH  # 等同「echo 'export PATH=$NODEJS_HOME/bin:$PATH' >> ~/.bashrc; source ~/.bashrc」
+#RUN rm -rf /tmp/node-v16.13.1-linux-x64.tar.xz
+
+# 方法二：用包來有線安裝 (「node -v  # v8.10.0」 & 「npm -v  # 3.5.2」)
+#RUN apt-get clean all && apt-get update && apt-get install -y nodejs npm
+
+# npm常用指令說明
+#npm install  # 在你這個資料夾裡面去尋找 package.json這個檔案，並去下載裡面所定義的所有dependencies到當前目錄的node_modules目錄下(若加上「-g」這個參數就會安裝到全域(global)的node_modules目錄下($NODEJS_HOME/lib/node_modules/))
+#npm install -g vue-cli express # 安裝「vue-cli」與「express」到「全域的node_modules」(因為有「-g」參數)下
+#npm run xxx  # 就是在你這個資料夾裡面去尋找 package.json這個檔案，並以node指令去執行裡面script的xxx所對應到的指令
+
+
+
+
+
+# ========================= 【常用安裝指令補充】 =========================
+# ========================= (「tar」壓縮與解壓縮指令) --> 常用於離線安裝使用
+#「-z」(gzip)：使用gz檔格式進行壓縮或解壓縮(若非這個檔案格式，就不要加這個參數即可)
+#「-v」(verbose)：顯示執行過程
+#「-f」(file)：指定壓縮檔的檔案名稱。此參數的後面要接檔案名稱，因此要注意參數的順序(通常是把 f 參數寫在最後一個，或是與其它參數分開使用)
+#「-C」：將解壓縮後的目錄mv至「-C」指定的目錄裡
+
+#「tar -zxvf xxx.tar.gz」：「-x」表示解壓縮
+#「tar -ztvf xxx.tar.gz」：「-t」表示檢視壓縮檔內容
+#「tar -zcvf xxx.tar.gz ./xxx/ ./xxx2/ ./xxx3/」：「-c」表示壓縮後面所帶的檔案與目錄
 
 
