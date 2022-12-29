@@ -84,9 +84,11 @@ CMD service ssh status && /bin/bash
 #RUN apt-get clean all && apt-get update && apt-get install -y nodejs npm
 
 # npm常用指令說明
-#npm install  # 在你這個資料夾裡面去尋找 package.json這個檔案，並去下載裡面所定義的所有dependencies到當前目錄的node_modules目錄下(若加上「-g」這個參數就會安裝到全域(global)的node_modules目錄下($NODEJS_HOME/lib/node_modules/))
-#npm install -g vue-cli express # 安裝「vue-cli」與「express」到「全域的node_modules」(因為有「-g」參數)下
-#npm run xxx  # 就是在你這個資料夾裡面去尋找 package.json這個檔案，並以node指令去執行裡面script的xxx所對應到的指令
+#npm install  # 在你這個資料夾裡面去尋找「package.json」這個檔案，並去下載裡面所定義的所有dependencies到當前目錄的node_modules目錄下(若加上「-g」這個參數就會安裝到全域(global)的node_modules目錄下($NODEJS_HOME/lib/node_modules/))
+#npm install -g vue-cli express # 安裝「vue-cli」與「express」到「全域的node_modules」(因為有「-g」參數)下 -> Vue.js框架使用的「腳手架(創建專案開發工具)」
+#npm install -g create-react-app # 安裝「create-react-app」到「全域的node_modules」(因為有「-g」參數)下 -> React.js框架使用的「腳手架(創建專案開發工具)」
+#create-react-app onion_traveler_proj  # 藉由「React」的「腳手架」(create-react-app)來創建一個「React」專案 (備註：「React.js」的專案名稱只能使用全小寫命名」
+#npm run xxx  # 就是在你這個資料夾裡面去尋找「package.json」這個檔案，並以node指令去執行裡面script的xxx所對應到的指令
 
 
 
