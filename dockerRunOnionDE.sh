@@ -9,6 +9,11 @@
  [ `docker ps -a | grep 'onionDE' | rev | cut -d ' ' -f 1 | rev` ] && echo "The container 「onionDE」 has existed" || docker run -itd --name onionDE --hostname onionDE -p 3306:3306 -p 27017:27017 --network=onionDENET oniontraveler/onionde:19.6.6
  
  
+#========================= (docker run for develop machine only)
+#mkdir /home/oniontraveler/dockerContainerVolume
+#docker run -itd --name onionDE --hostname onionDE -p 2222:22 -v /home/oniontraveler/dockerContainerVolume:/root/dockerContainerVolume --network=onionDENET oniontraveler/onionde:19.6.6
+
+
 #========================= (port explanation)
 # -p 「實體主機host」:「容器container」
 # -p 3306:3306    -> MySQL
